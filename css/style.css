@@ -1,0 +1,244 @@
+@charset "UTF-8";
+
+/* ----- Grundstil för webbsidan ----- */
+
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html,
+body,
+nav,
+header,
+main,
+aside,
+footer,
+article,
+section,
+div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----- Layout ----- */
+
+body {
+    background-color: #F2BDED;
+    color: #000000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: grid;
+    grid-template-columns: 130px 100px repeat(2, minmax(auto, 550px)) auto;
+    grid-template-rows: min-content repeat(3, auto) minmax(min-content, 10px);
+
+    gap: 15px;
+    grid-template-areas:
+        /*"nav nav nav nav"*/
+        "header header header header  header"
+        "nav . block1 block1 ."
+        "nav . block2 block2 ."
+        ". . block3 block3 ."
+        "footer footer footer footer footer";
+}
+
+/* ----- Nav ----- */
+
+nav {
+    grid-area: nav;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+nav div {
+    background-color: #73376D;
+    padding: 15px;
+    transition: transform 1.2s;
+    transform: skewY(5deg);
+}
+
+nav a div:hover {
+    background-color: #73376D;
+    transform: scale(1.1) skewY(10deg);
+}
+
+nav a div {
+    color: #F2BDED;
+}
+
+nav a #current {
+    background-color: #BF95BB;
+    color: rgb(255, 255, 255);
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a:hover div {
+    background-color: #482244;
+    color: #ffffff;
+}
+
+nav li {
+    padding: 10px;
+}
+
+/* ----- Header ----- */
+
+header {
+    grid-area: header;
+    background-color: #73376D;
+    color: #f5eaf4;
+    padding: 3px;
+}
+
+#questionBlock1 {
+    grid-area: block1;
+}
+
+#questionBlock2 {
+    grid-area: block2;
+}
+
+#questionBlock3 {
+    grid-area: block3;
+}
+
+#quest1 {
+    background-color: #F475E8;
+    padding: 10px;
+    height: min-content;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+#quest2 {
+    background-color: #F475E8;
+    padding: 10px;
+    height: min-content;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+
+#quest3 {
+    background-color: #F475E8;
+    padding: 10px;
+    height: min-content;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+}
+
+#answer1 {
+    background-color: #BF95BB;
+    padding: 10px;
+}
+
+#answer2 {
+    grid-area: answer2;
+    background-color: #BF95BB;
+    padding: 10px;
+}
+
+#answer3 {
+    background-color: #BF95BB;
+    padding: 10px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #73376D;
+    padding: 3px;
+    color: antiquewhite;
+}
+
+em {
+    color: #ac95aa;
+    background-color: #73376D;
+    color: #f5eaf4;
+    padding: 1px 3px 1.5px 3px;
+    border-radius: 10%;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        display: grid;
+        grid-template-columns: 150px repeat(2, minmax(auto, 550px)) auto;
+        grid-template-rows: 70px repeat(3, auto) minmax(min-content, 10px);
+    
+        gap: 15px;
+        grid-template-areas:
+            "header  header header  header"
+            "nav block1 block1 ."
+            "nav block2 block2 ."
+            ". block3 block3 ."
+            "footer  footer footer footer";
+    }
+    nav {
+        margin-left: 10px;
+        gap: 20px;
+    }
+    nav div {
+        padding: 5px;
+        transition: transform 1.2s;
+        transform: skewY(0deg);
+    }
+    nav a div:hover {
+        background-color: #73376D;
+        transform: scale(1.03) skewY(5deg);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto 50px repeat(3, minmax(auto, 300px)) minmax(min-content, 10px);
+        gap: 5px;
+        grid-template-areas:
+            "nav nav"
+            "header header"
+            "block1 block1"
+            "block2 block2"
+            "block3 block3"
+            "footer footer";
+    }
+
+    header {
+        font-size: 70%;
+    }
+
+    nav {
+        flex-direction: row;
+        margin-left: 0px;
+        display: flex;
+        gap: 20px;
+    }
+
+    nav a div {
+        transform: none !important;
+        transition: none !important;
+    }
+
+    nav div:hover {
+        transform: none !important;
+    }
+    #answer1 {
+        padding: 3px;
+    }
+    
+    #answer2 {
+        padding: 3px;
+    }
+    
+    #answer3 {
+        padding: 3px;
+    }
+}

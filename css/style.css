@@ -33,12 +33,11 @@ body {
     color: #000000;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: grid;
-    grid-template-columns: 130px 100px repeat(2, minmax(auto, 550px)) auto;
+    grid-template-columns: 130px 100px repeat(2, minmax(auto, 600px)) auto;
     grid-template-rows: min-content repeat(3, auto) minmax(min-content, 10px);
 
     gap: 15px;
     grid-template-areas:
-        /*"nav nav nav nav"*/
         "header header header header  header"
         "nav . block1 block1 ."
         "nav . block2 block2 ."
@@ -97,6 +96,16 @@ header {
     background-color: #73376D;
     color: #f5eaf4;
     padding: 3px;
+    text-align: right;
+    padding-right: 30px;
+}
+
+header h1 {
+    transition: transform 3s;
+}
+
+header h1:hover {
+    transform: translate(-80%);
 }
 
 #questionBlock1 {
@@ -167,12 +176,12 @@ em {
     border-radius: 10%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1300px) {
     body {
         display: grid;
         grid-template-columns: 150px repeat(2, minmax(auto, 550px)) auto;
-        grid-template-rows: 70px repeat(3, auto) minmax(min-content, 10px);
-    
+        grid-template-rows: 100px repeat(3, auto) minmax(min-content, 10px);
+
         gap: 15px;
         grid-template-areas:
             "header  header header  header"
@@ -181,15 +190,34 @@ em {
             ". block3 block3 ."
             "footer  footer footer footer";
     }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        display: grid;
+        grid-template-columns: 150px repeat(2, minmax(auto, 550px)) auto;
+        grid-template-rows: 70px repeat(3, auto) minmax(min-content, 10px);
+
+        gap: 15px;
+        grid-template-areas:
+            "header  header header  header"
+            "nav block1 block1 ."
+            "nav block2 block2 ."
+            ". block3 block3 ."
+            "footer  footer footer footer";
+    }
+
     nav {
         margin-left: 10px;
         gap: 20px;
     }
+
     nav div {
         padding: 5px;
         transition: transform 1.2s;
         transform: skewY(0deg);
     }
+
     nav a div:hover {
         background-color: #73376D;
         transform: scale(1.03) skewY(5deg);
@@ -200,11 +228,11 @@ em {
     body {
         display: grid;
         grid-template-columns: auto auto;
-        grid-template-rows: auto 50px repeat(3, minmax(auto, 300px)) minmax(min-content, 10px);
+        grid-template-rows: 50px 40px repeat(3, minmax(auto, 300px)) minmax(min-content, 10px);
         gap: 5px;
         grid-template-areas:
-            "nav nav"
             "header header"
+            "nav nav"
             "block1 block1"
             "block2 block2"
             "block3 block3"
@@ -217,27 +245,29 @@ em {
 
     nav {
         flex-direction: row;
-        margin-left: 0px;
         display: flex;
-        gap: 20px;
+        gap: 0px;
+        justify-content: space-evenly;
     }
 
     nav a div {
         transform: none !important;
         transition: none !important;
+        padding: 10px;
     }
 
     nav div:hover {
         transform: none !important;
     }
+
     #answer1 {
         padding: 3px;
     }
-    
+
     #answer2 {
         padding: 3px;
     }
-    
+
     #answer3 {
         padding: 3px;
     }
